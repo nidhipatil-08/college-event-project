@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - College Event Management</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const m = document.getElementById('message');
+            if (u.length < 3) { m.textContent = 'Username must be at least 3 characters'; m.style.color = 'red'; return; }
+            if (p.length < 6) { m.textContent = 'Password must be at least 6 characters'; m.style.color = 'red'; return; }
+            m.textContent = 'Login successful!';
+            m.style.color = 'green';
+        });
+    </script>
+</body>
+</html>
